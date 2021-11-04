@@ -135,21 +135,21 @@ STATICFILES_DIRS = [
 
 # Channels
 ASGI_APPLICATION = 'mysite.asgi.application'
-STATIC_ROOT = '/var/www/chat-video-me.herokuapp.com/static'
-#CHANNEL_LAYERS = {
-#    "default": {
-#        "BACKEND": "channels.layers.InMemoryChannelLayer"
-#    }
-#}
+
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
-        },
-        "ROUTING": "chat.routing.channel_routing",
-    },
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
 }
+#CHANNEL_LAYERS = {
+#    "default": {
+#        "BACKEND": "asgi_redis.RedisChannelLayer",
+#        "CONFIG": {
+#            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+#        },
+#        "ROUTING": "chat.routing.channel_routing",
+#    },
+#}
 # AUTH_USER_MODEL = "chat.Usera" 
 # CHANNEL_LAYERS = {
 #     'default': {
